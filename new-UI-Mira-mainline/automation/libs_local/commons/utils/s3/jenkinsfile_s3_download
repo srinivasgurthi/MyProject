@@ -1,0 +1,81 @@
+
+pipeline {
+    agent { label 'docker' }
+    environment {
+       s3 = ''
+   }
+
+    stages {
+        stage('Start Docker on Worker'){
+            agent {
+                dockerfile {
+                    filename 'automation_libs/hpe_glcp_automation_lib/libs/commons/utils/s3/Dockerfile_Jenkins'
+                    label 'docker'
+                    args '-u ubuntu -v /var/run/docker.sock:/var/run/docker.sock'
+                    registryUrl 'https://quay.io'
+                    registryCredentialsId 'quay-ccs-docker-credentials'
+                    reuseNode true
+                }
+            }
+            stages{
+                stage('Set Variables'){
+                    steps{
+                        script{
+                            try {
+                                assert s3path =~ /https:(.*)allure-results\/index.html(.*)/
+                                echo "S3AllureLink was provided: ${s3path}"
+
+                                s3 = env.s3path.replaceAll("https://glcp-automation.s3-us-west-2.amazonaws.com/","")
+                                s3 = s3.replaceAll("https://s3-us-west-2.amazonaws.com/glcp-automation/","")
+                                s3 = s3.replaceAll("glcp-automation/","")
+                                s3 = s3.replaceAll("/allure-results/index.html","")
+                                s3 = s3.replaceAll("#","")
+                                echo "s3path calculated from s3allurelink: ${s3}"
+
+                                wrap([$class: 'BuildUser']) {
+                                    sh 'echo "Triggered by: ${BUILD_USER_ID}"'
+                                    env.user_id="${BUILD_USER_ID}"
+                                }
+                                echo "Triggered by ${user_id}"
+
+                                currentBuild.displayName = "${user_id} - ${env.BUILD_NUMBER}"
+                                currentBuild.description = "S3Path: ${s3}"
+                            } catch (Throwable t) {
+                                s3 = env.s3path
+                                echo "s3path input provided: ${s3}"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Download Artifacts'){
+            steps{
+                script {
+                    try {
+                        withAWS(credentials:'glcp-automation') {
+                            s3Download(file: "artifacts", bucket: "glcp-automation", path: "${s3}/", force:true)
+                        }
+                        archiveArtifacts artifacts: "artifacts/${s3}/**/*.*", allowEmptyArchive: false
+                    } catch (err) {
+                        build_ok = false
+                        error("Failed in Download and Store Artifacts")
+                    }
+                }
+            }
+        }
+
+        stage('Send Email') {
+            steps {
+                script {
+                    emailext to: "${hpe_email_id}",
+                    subject: "Test Execution Summary HPE email",
+                    body: '''see attached!!!''',
+                    attachmentsPattern: '*.json',
+                    mimeType: 'text/html'
+                }
+            }
+        }
+    }
+}

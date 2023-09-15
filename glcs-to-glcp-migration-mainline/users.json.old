@@ -1,0 +1,60 @@
+[{
+    "id": "00u1j2e2os4eKgSyF0h8",
+    "name": {
+        "familyName": "glcmigrationtester1",
+        "givenName": "glcmigrationtester1"
+    },
+    "applicationId": "APP000114",
+    "userName": "glcmigrationtester1@test.glc.hpe.com",
+    "displayName": "glcmigrationtester1",
+    "password": "vF2S@1o7OuaiIlDA$xKTcIIW",
+    "created": "2023-01-26T21:42:15Z",
+    "lastModified": "2023-01-26T21:42:16Z",
+    "countryCode": "US",
+    "createdBy": "andy.tran4@hpe.com"
+},
+{
+    "id": "00u1j3rfcwaj6NrTI0h8",
+    "name": {
+        "familyName": "glcmigrationtester2",
+        "givenName": "glcmigrationtester2"
+    },
+    "applicationId": "APP000114",
+    "userName": "glcmigrationtester2@test.glc.hpe.com",
+    "displayName": "glcmigrationtester2",
+    "password": "myM;$WdpStwp0YvWRVI@9-1L",
+    "created": "2023-01-27T16:04:20Z",
+    "lastModified": "2023-01-27T16:04:20Z",
+    "countryCode": "US",
+    "createdBy": "andy.tran4@hpe.com"
+},
+{
+    "id": "00u1j3rw7kvtPWeku0h8",
+    "name": {
+        "familyName": "andtran_glctester1",
+        "givenName": "andtran_glctester1"
+    },
+    "applicationId": "APP000114",
+    "userName": "andtran_glctester1@test.glc.hpe.com",
+    "displayName": "andtran_glctester1",
+    "password": "xju9fvnqWOdZHjz$8Z97:*8u",
+    "created": "2023-01-27T16:16:40Z",
+    "lastModified": "2023-01-27T16:16:40Z",
+    "countryCode": "US",
+    "createdBy": "andy.tran4@hpe.com"
+},
+{
+    "id": "00u1j7barw4TX7M4v0h8",
+    "name": {
+        "familyName": "glcmigrationtester3",
+        "givenName": "glcmigrationtester3"
+    },
+    "applicationId": "APP000114",
+    "userName": "glcmigrationtester3@test.glc.hpe.com",
+    "displayName": "glcmigrationtester3",
+    "password": "micRS==nqx:h9jfz_ir8QkjN",
+    "created": "2023-01-30T13:17:57Z",
+    "lastModified": "2023-01-30T13:17:58Z",
+    "countryCode": "US",
+    "createdBy": "andy.tran4@hpe.com"
+}]

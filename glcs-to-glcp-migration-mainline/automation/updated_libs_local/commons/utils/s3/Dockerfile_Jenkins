@@ -1,0 +1,20 @@
+FROM quay.io/ccsportal/ubuntu:python3-dev-latest
+ENV DOCKERVERSION=19.03.13
+
+RUN adduser -u 1000 ubuntu --disabled-password --gecos ",,," && \
+    addgroup --gid 999 docker && \
+    usermod -aG docker ubuntu && \
+    apt-get update && apt-get install -y curl sudo python3-venv python3.7-venv git-core jq sshpass && \
+    curl -o /usr/local/bin/updateservicectl https://coreupdate.central.arubanetworks.com/packages/updateservicectl && \
+    chmod +x /usr/local/bin/updateservicectl && \
+    curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz && \
+    tar xzvf docker-${DOCKERVERSION}.tgz --strip 1 -C /usr/local/bin docker/docker && \
+    rm docker-${DOCKERVERSION}.tgz && \
+    pip install -U pip && \
+    pip install -U poetry virtualenv json2table pytest
+
+# Authorize SSH Host
+RUN sudo mkdir -p /home/ubuntu/.ssh && \
+    ssh-keyscan stash.arubanetworks.com > /home/ubuntu/.ssh/known_hosts
+
+RUN sudo chown -R ubuntu:ubuntu /home/ubuntu/.ssh

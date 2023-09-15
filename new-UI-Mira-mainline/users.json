@@ -1,0 +1,76 @@
+[
+  {
+    "name": {
+      "familyName": "soltest12",
+      "givenName": "soltest12"
+    },
+    "userName": "soltest.user12@glcpsoltest.net",
+    "displayName": "soltest12",
+    "password": "Qwerty@123"
+  },
+
+  {
+    "name": {
+      "familyName": "soltest13",
+      "givenName": "soltest13"
+    },
+    "userName": "soltest.user13@glcpsoltest.net",
+    "displayName": "soltest1",
+    "password": "Qwerty@123"
+  },
+  {
+    "name": {
+      "familyName": "soltest14",
+      "givenName": "soltest14"
+    },
+    "userName": "soltest.user14@glcpsoltest.net",
+    "displayName": "soltest14",
+    "password": "Qwerty@123"
+  },
+  {
+    "name": {
+      "familyName": "soltest15",
+      "givenName": "soltest15"
+    },
+    "userName": "soltest.user15@glcpsoltest.net",
+    "displayName": "soltest15",
+    "password": "Qwerty@123"
+  },
+  {
+    "name": {
+      "familyName": "soltest16",
+      "givenName": "soltest16"
+    },
+    "userName": "soltest.user16@glcpsoltest.net",
+    "displayName": "soltest16",
+    "password": "Qwerty@123"
+  },
+
+  {
+    "name": {
+      "familyName": "soltest17",
+      "givenName": "soltest17"
+    },
+    "userName": "soltest.user17@glcpsoltest.net",
+    "displayName": "soltest17",
+    "password": "Qwerty@123"
+  },
+  {
+    "name": {
+      "familyName": "soltest18",
+      "givenName": "soltest18"
+    },
+    "userName": "soltest.user18@glcpsoltest.net",
+    "displayName": "soltest18",
+    "password": "Qwerty@123"
+  },
+  {
+    "name": {
+      "familyName": "soltest19",
+      "givenName": "soltest19"
+    },
+    "userName": "soltest.user19@glcpsoltest.net",
+    "displayName": "soltest19",
+    "password": "Qwerty@123"
+  }
+]

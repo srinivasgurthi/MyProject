@@ -1,0 +1,13 @@
+class LoginPageSelectors:
+    EMAIL_ID_PATH = "id=idp-discovery-username"
+    NEXT_BTN_PATH = "id=idp-discovery-submit"
+    PASSWD_PATH = "id=okta-signin-password"
+    SUBMIT_PATH = "id=okta-signin-submit"
+    USERNAME_ERROR = "p:text-is('This field cannot be left blank')"
+    SIGN_IN_ERROR = "p:text-is('Unable to sign in')"
+    PASSWD_ERROR = "p:text-is('Please enter a password')"
+    NEED_HELP_SIGING_IN = "a:text-is('Need help signing in?')"
+    FRGT_PASSWD = "a:text-is('Forgot password?')"
+    ACC_RCVRY_USERNAME = "id=account-recovery-username"
+    RESET_VIA_EMAIL_BTN = "a:text-is('Reset via Email')"
+    BACK_TO_SIGN_BTN = "a:text-is('Back to sign in')"
